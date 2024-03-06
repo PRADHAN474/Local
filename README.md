@@ -60,7 +60,8 @@ You can deploy this bot to Heroku with the following steps:
 
 1. Click the button below to deploy the bot to Heroku:
 
-[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
+[![ʜᴇʀᴏᴋᴜ](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/PRADHAN474/Local)
+
 
 2. Set the following environment variables in your Heroku app settings:
    - `BOT_TOKEN`: Your Telegram bot token
