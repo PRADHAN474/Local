@@ -1,15 +1,14 @@
 # database.py
 
-import os
-import psycopg2
+from pymongo import MongoClient
+from config import config
 
-DATABASE_URL = os.environ['DATABASE_URL']
+def get_notes_collection():
+    client = MongoClient(config['MONGODB_URI'])
+    db = client.get_default_database()
+    return db['notes']
 
 def fetch_notes_from_database(class_number):
-    conn = psycopg2.connect(DATABASE_URL, sslmode='require')
-    cursor = conn.cursor()
-    cursor.execute("SELECT notes FROM notes_table WHERE class_number = %s", (class_number,))
-    notes = cursor.fetchone()[0]
-    conn.close()
-    return notes
-  
+    collection = get_notes_collection()
+    note = collection.find_one({'class_number': class_number})
+    return note['notes'] if note else None
