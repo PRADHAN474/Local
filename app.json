@@ -1,0 +1,27 @@
+{
+  "name": "your-bot-name",
+  "description": "Telegram bot with random buttons for class notes",
+  "repository": "https://github.com/your-username/your-repo",
+  "keywords": ["telegram", "bot", "python"],
+  "env": {
+    "BOT_TOKEN": {
+      "description": "Telegram bot token",
+      "required": true
+    },
+    "DATABASE_URL": {
+      "description": "PostgreSQL database URL",
+      "required": true
+    }
+  },
+  "addons": [
+    "heroku-postgresql"
+  ],
+  "buildpacks": [
+    {
+      "url": "heroku/python"
+    }
+  ],
+  "scripts": {
+    "postdeploy": "python setup.py"
+  }
+}
